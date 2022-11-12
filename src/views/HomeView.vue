@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import HomeDetails from "../components/HomeDetails.vue";
-import UserDetails from "../components/UserDetails.vue";
+import HomeDetails from '../components/HomeDetails.vue';
+import PlanYourWeek from '../components/PlanYourWeek.vue';
 </script>
 
 <template>
   <main>
     <HomeDetails />
-    <UserDetails />
+    <PlanYourWeek />
   </main>
 </template>
