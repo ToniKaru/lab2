@@ -3,10 +3,13 @@
 <template>
   <div>
     <h1>Your Exercise Planning Tool</h1>
-    <h3>
-      Create a custom exercise schedule!
-    </h3>
+    <p>Create a custom exercise schedule!</p>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+h1,
+p {
+  margin: 10px;
+}
+</style>
