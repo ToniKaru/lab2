@@ -12,4 +12,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
+  rules: {
+    "indent": [
+      "warn",
+      2
+    ]
+  },
 };
