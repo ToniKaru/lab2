@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import ExerciseItem from "@/components/ExerciseItem.vue";
+import PlanYourWeek from "@/components/PlanYourWeek.vue";
 </script>
 
 <template>
   <div class="plan">
-    <h1>Planner View</h1>
-    <ExerciseItem />
+    <h1>Planning View</h1>
+    <PlanYourWeek />
   </div>
 </template>
 

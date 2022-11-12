@@ -1,13 +1,29 @@
 <template>
   <body>
     <div class="dayOfWeek">
-      <h2>today</h2>
-      <div id="exercise-item-list">
-        <input id="new-exercise" v-model="newExerciseName" placeholder="e.g. Jumping Jacks" />
-        <input id="new-duration" v-model="newDuration" type="number" min="1" max="500" />
-        <button @click="addNewExercise">Add</button>
-
-        <div class="exercise-items" v-for="(exercise, index) in exercises" v-bind:key="index">
+      <h2>{{ day }}</h2>
+      <div id="add-exercise">
+        <form @submit.prevent="addNewExercise">
+          <input
+            id="new-exercise"
+            v-model="newExerciseName"
+            placeholder="e.g. Jumping Jacks"
+            required
+          />
+          <input
+            id="new-duration"
+            v-model="newDuration"
+            type="number"
+            min="1"
+            max="500"
+          />
+          <button class="button-add">Add</button>
+        </form>
+        <div
+          class="exercise-item-list"
+          v-for="(exercise, index) in exercises"
+          v-bind:key="index"
+        >
           <a> {{ exercise.exerciseName }} {{ exercise.duration }}min</a>
           <button class="removeButton" @click="removeExercise(exercise.id)">Remove</button>
         </div>
@@ -29,7 +45,7 @@ export default {
       newDuration: 0,
       exercises: [
         {
-          id: 1,
+          id: 0,
           exerciseName: "Test",
           duration: 10,
         },
