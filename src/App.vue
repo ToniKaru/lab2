@@ -5,16 +5,17 @@ import HeaderDetail from "./components/HeaderDetail.vue";
 
 <template>
   <header>
-    <img alt="Lotus logo" class="logo" height="200" src="@/assets/lotus-flower-purple.svg" width="200" />
+    <img
+      alt="Lotus logo"
+      class="logo"
+      height="200"
+      src="@/assets/lotus-flower-purple.svg"
+      width="200" />
 
     <div class="title-nav-wrapper">
       <div class="wrapper">
         <HeaderDetail></HeaderDetail>
       </div>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/planner">Planner</RouterLink>
-      </nav>
     </div>
   </header>
 
@@ -31,20 +32,10 @@ header {
 
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  margin: 0 auto -2rem;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-@media (min-width: 524px) {
+@media (min-width: 580px) {
   header {
     display: flex;
     padding-right: 0;
@@ -68,7 +59,6 @@ nav {
     width: 100%;
     font-size: 12px;
     text-align: center;
-    margin-top: 0rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
