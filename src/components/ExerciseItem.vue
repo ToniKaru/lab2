@@ -18,19 +18,43 @@
         </div>
       </div>
       <div v-show="displayOnlySchedule" id="add-exercise">
-        <form @submit.prevent="addNewExercise">
+        <form
+          action="/action_page.php"
+          method="get"
+          @submit.prevent="addNewExercise">
+          <label for="new-exercise">Choose: </label>
           <input
             id="new-exercise"
             v-model="newExerciseName"
+            list="exercises"
+            name="exercise"
             placeholder="e.g. Jumping Jacks"
             required />
+          <datalist id="exercises">
+            <option value="Aerobics" />
+            <option value="Cycling" />
+            <option value="Chin-ups" />
+            <option value="Dancing" />
+            <option value="Hiking" />
+            <option value="Jogging" />
+            <option value="Jumping Jacks" />
+            <option value="Push-ups" />
+            <option value="Running" />
+            <option value="Sit-ups" />
+            <option value="Stretching" />
+            <option value="Strength Training" />
+            <option value="Swimming" />
+            <option value="Walking" />
+            <option value="Weight Lifting" />
+            <option value="Yoga" />
+          </datalist>
           <input
             id="new-duration"
             v-model="newDuration"
             type="number"
             min="0"
             max="500"
-            step="5" />
+            step="5" />min
           <button class="button-add">Add</button>
         </form>
       </div>
@@ -81,16 +105,17 @@ export default {
 <style scoped>
 a {
   display: flex;
-  width: 100%;
   justify-content: center;
   margin-bottom: 1vh;
+  text-align: center;
+  width: 100%;
 }
 
 .removeButton {
-  margin-bottom: 10px;
   background-color: azure;
   border-color: #a420b0;
   color: #a420b0;
+  margin-bottom: 10px;
 }
 
 button {
@@ -98,24 +123,31 @@ button {
 }
 
 .exercise-item-list {
-  color: azure;
-  width: 100%;
   border-radius: 5px;
   background-color: #a420b0;
+  color: azure;
+  padding: 5px;
   margin-bottom: 10px;
   margin-top: 20px;
-
-  padding: 5px;
+  width: 100%;
 }
 
 h2 {
   margin-bottom: 5px;
 }
 
+#new-exercise {
+  width: 50vw;
+}
+
 @media (min-width: 580px) {
   .removeButton {
     float: right;
     margin-bottom: 10px;
+  }
+
+  #new-exercise {
+    width: auto;
   }
 }
 </style>
