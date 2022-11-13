@@ -1,24 +1,35 @@
-<script setup lang="ts">
+<script lang="ts">
 import ExerciseItem from "@/components/ExerciseItem.vue";
+
+export default {
+  components: {
+    ExerciseItem,
+  },
+  data() {
+    return {
+      todayExercises: [],
+    };
+  },
+};
 </script>
 
 <template>
-  <div>
-    <h2>Monday</h2>
-    <ExerciseItem />
-    <h2>Tuesday</h2>
-    <ExerciseItem />
-    <h2>Wednesday</h2>
-    <ExerciseItem />
-    <h2>Thursday</h2>
-    <ExerciseItem />
-    <h2>Friday</h2>
-    <ExerciseItem />
-    <h2>Saturday</h2>
-    <ExerciseItem />
-    <h2>Sunday</h2>
-    <ExerciseItem />
+  <div class="week-details">
+    <ExerciseItem :today-exercises="todayExercises" :day="'Monday'" />
+    <ExerciseItem :today-exercises="todayExercises" :day="'Tuesday'" />
+    <ExerciseItem :today-exercises="todayExercises" :day="'Wednesday'" />
+    <ExerciseItem :today-exercises="todayExercises" :day="'Thursday'" />
+    <ExerciseItem :today-exercises="todayExercises" :day="'Friday'" />
+    <ExerciseItem :today-exercises="todayExercises" :day="'Saturday'" />
+    <ExerciseItem :today-exercises="todayExercises" :day="'Sunday'" />
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+@media (min-width: 580px) {
+  .week-details {
+    display: flex;
+    flex-direction: row;
+  }
+}
+</style>
