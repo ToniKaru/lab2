@@ -2,6 +2,9 @@
 import ExerciseItem from "@/components/ExerciseItem.vue";
 
 export default {
+  props: {
+    displayOnlySchedule: Boolean,
+  },
   components: {
     ExerciseItem,
   },
@@ -15,13 +18,41 @@ export default {
 
 <template>
   <div class="week-details">
-    <ExerciseItem :today-exercises="todayExercises" :day="'Monday'" />
-    <ExerciseItem :today-exercises="todayExercises" :day="'Tuesday'" />
-    <ExerciseItem :today-exercises="todayExercises" :day="'Wednesday'" />
-    <ExerciseItem :today-exercises="todayExercises" :day="'Thursday'" />
-    <ExerciseItem :today-exercises="todayExercises" :day="'Friday'" />
-    <ExerciseItem :today-exercises="todayExercises" :day="'Saturday'" />
-    <ExerciseItem :today-exercises="todayExercises" :day="'Sunday'" />
+    <ExerciseItem
+      class="weekday"
+      :display-only-schedule="displayOnlySchedule"
+      :today-exercises="todayExercises"
+      :day="'Monday'" />
+    <ExerciseItem
+      class="weekday"
+      :display-only-schedule="displayOnlySchedule"
+      :today-exercises="todayExercises"
+      :day="'Tuesday'" />
+    <ExerciseItem
+      class="weekday"
+      :display-only-schedule="displayOnlySchedule"
+      :today-exercises="todayExercises"
+      :day="'Wednesday'" />
+    <ExerciseItem
+      class="weekday"
+      :display-only-schedule="displayOnlySchedule"
+      :today-exercises="todayExercises"
+      :day="'Thursday'" />
+    <ExerciseItem
+      class="weekday"
+      :display-only-schedule="displayOnlySchedule"
+      :today-exercises="todayExercises"
+      :day="'Friday'" />
+    <ExerciseItem
+      class="weekday"
+      :display-only-schedule="displayOnlySchedule"
+      :today-exercises="todayExercises"
+      :day="'Saturday'" />
+    <ExerciseItem
+      class="weekday"
+      :display-only-schedule="displayOnlySchedule"
+      :today-exercises="todayExercises"
+      :day="'Sunday'" />
   </div>
 </template>
 
@@ -29,7 +60,11 @@ export default {
 .week-details {
   display: flex;
   flex-direction: column;
-  width: 70vw;
+  min-width: 90vw;
+}
+
+.weekday {
+  width: 100%;
 }
 
 @media (min-width: 580px) {

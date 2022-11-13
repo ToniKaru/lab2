@@ -2,17 +2,35 @@
   <body>
     <div class="day-of-week">
       <h2>{{ day }}</h2>
-      <div class="exercise-item-list" v-for="(exercise, index) in exercises" v-bind:key="index">
+      <div
+        class="exercise-item-list"
+        v-for="(exercise, index) in exercises"
+        v-bind:key="index">
         <div v-if="exercises[index].exerciseName !== ''">
           <a> {{ exercise.exerciseName }}</a>
           <a>{{ exercise.duration }}min</a>
-          <button class="removeButton" @click="removeExercise(exercise.id)">Remove</button>
+          <button
+            v-show="displayOnlySchedule"
+            class="removeButton"
+            @click="removeExercise(exercise.id)">
+            Remove
+          </button>
         </div>
       </div>
-      <div id="add-exercise">
+      <div v-show="displayOnlySchedule" id="add-exercise">
         <form @submit.prevent="addNewExercise">
-          <input id="new-exercise" v-model="newExerciseName" placeholder="e.g. Jumping Jacks" required />
-          <input id="new-duration" v-model="newDuration" type="number" min="0" max="500" step="5" />
+          <input
+            id="new-exercise"
+            v-model="newExerciseName"
+            placeholder="e.g. Jumping Jacks"
+            required />
+          <input
+            id="new-duration"
+            v-model="newDuration"
+            type="number"
+            min="0"
+            max="500"
+            step="5" />
           <button class="button-add">Add</button>
         </form>
       </div>
@@ -22,9 +40,11 @@
 
 <script lang="ts">
 export default {
+  name: "ExeciseItem",
   props: {
     todayExercises: Array,
     day: String,
+    displayOnlySchedule: Boolean,
   },
   data() {
     return {
@@ -67,8 +87,10 @@ a {
 }
 
 .removeButton {
-  float: right;
   margin-bottom: 10px;
+  background-color: azure;
+  border-color: #a420b0;
+  color: #a420b0;
 }
 
 button {
