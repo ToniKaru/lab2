@@ -33,8 +33,8 @@ export default {
     <button @click="showOnlySchedule">Schedule Only</button>
   </div>
   <div v-else>
-    <h1>Schedule View</h1>
-    <button @click="showOnlySchedule">Planner</button>
+    <h1>Schedule</h1>
+    <button @click="showOnlySchedule">Go to Planning View</button>
   </div>
   <div>
     <PlanYourWeek :display-only-schedule="displayOnlySchedule" />
