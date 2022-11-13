@@ -26,10 +26,17 @@ export default {
 </template>
 
 <style scoped>
+.week-details {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+}
+
 @media (min-width: 580px) {
   .week-details {
     display: flex;
     flex-direction: row;
+    width: 12vw;
   }
 }
 </style>

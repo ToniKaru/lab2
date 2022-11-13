@@ -2,34 +2,19 @@
   <body>
     <div class="day-of-week">
       <h2>{{ day }}</h2>
+      <div class="exercise-item-list" v-for="(exercise, index) in exercises" v-bind:key="index">
+        <div v-if="exercises[index].exerciseName !== ''">
+          <a> {{ exercise.exerciseName }}</a>
+          <a>{{ exercise.duration }}min</a>
+          <button class="removeButton" @click="removeExercise(exercise.id)">Remove</button>
+        </div>
+      </div>
       <div id="add-exercise">
         <form @submit.prevent="addNewExercise">
-          <input
-            id="new-exercise"
-            v-model="newExerciseName"
-            placeholder="e.g. Jumping Jacks"
-            required />
-          <input
-            id="new-duration"
-            v-model="newDuration"
-            type="number"
-            min="0"
-            max="500"
-            step="5"/>
+          <input id="new-exercise" v-model="newExerciseName" placeholder="e.g. Jumping Jacks" required />
+          <input id="new-duration" v-model="newDuration" type="number" min="0" max="500" step="5" />
           <button class="button-add">Add</button>
         </form>
-        <div
-          class="exercise-item-list"
-          v-for="(exercise, index) in exercises"
-          v-bind:key="index">
-          <div v-if="exercises[index].exerciseName !== ''">
-            <a> {{ exercise.exerciseName }}</a>
-              <a>{{ exercise.duration }}min</a>
-            <button class="removeButton" @click="removeExercise(exercise.id)">
-              Remove
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   </body>
@@ -75,18 +60,40 @@ export default {
 </script>
 <style scoped>
 a {
-    color: azure;
-    display: flex;
-    width: 25vw;
-    background-color: #a420b0;
-    justify-content: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 1vh;
 }
 
-exercise-item-list {
-    background-color: #a420b0;
+.removeButton {
+  float: right;
+  margin-bottom: 10px;
+}
+
+button {
+  float: right;
+}
+
+.exercise-item-list {
+  color: azure;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #a420b0;
+  margin-bottom: 10px;
+  margin-top: 20px;
+
+  padding: 5px;
 }
 
 h2 {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 580px) {
+  .removeButton {
+    float: right;
+    margin-bottom: 10px;
+  }
 }
 </style>
