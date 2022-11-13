@@ -1,6 +1,6 @@
 <template>
   <body>
-    <div class="dayOfWeek">
+    <div class="day-of-week">
       <h2>{{ day }}</h2>
       <div id="add-exercise">
         <form @submit.prevent="addNewExercise">
@@ -8,24 +8,27 @@
             id="new-exercise"
             v-model="newExerciseName"
             placeholder="e.g. Jumping Jacks"
-            required
-          />
+            required />
           <input
             id="new-duration"
             v-model="newDuration"
             type="number"
-            min="1"
+            min="0"
             max="500"
-          />
+            step="5"/>
           <button class="button-add">Add</button>
         </form>
         <div
           class="exercise-item-list"
           v-for="(exercise, index) in exercises"
-          v-bind:key="index"
-        >
-          <a> {{ exercise.exerciseName }} {{ exercise.duration }}min</a>
-          <button class="removeButton" @click="removeExercise(exercise.id)">Remove</button>
+          v-bind:key="index">
+          <div v-if="exercises[index].exerciseName !== ''">
+            <a> {{ exercise.exerciseName }}</a>
+              <a>{{ exercise.duration }}min</a>
+            <button class="removeButton" @click="removeExercise(exercise.id)">
+              Remove
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -46,8 +49,8 @@ export default {
       exercises: [
         {
           id: 0,
-          exerciseName: "Test",
-          duration: 10,
+          exerciseName: "",
+          duration: 0,
         },
       ],
     };
@@ -70,3 +73,20 @@ export default {
   },
 };
 </script>
+<style scoped>
+a {
+    color: azure;
+    display: flex;
+    width: 25vw;
+    background-color: #a420b0;
+    justify-content: center;
+}
+
+exercise-item-list {
+    background-color: #a420b0;
+}
+
+h2 {
+    margin-bottom: 5px;
+}
+</style>
