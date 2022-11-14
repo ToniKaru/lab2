@@ -60,7 +60,7 @@ export default {
 .week-details {
   display: flex;
   flex-direction: column;
-  min-width: 90vw;
+  min-width: 100%;
 }
 
 .weekday {

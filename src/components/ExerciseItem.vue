@@ -22,7 +22,6 @@
           action="/action_page.php"
           method="get"
           @submit.prevent="addNewExercise">
-          <label for="new-exercise">Choose: </label>
           <input
             id="new-exercise"
             v-model="newExerciseName"
@@ -41,6 +40,7 @@
             <option value="Push-ups" />
             <option value="Running" />
             <option value="Sit-ups" />
+            <option value="Squats" />
             <option value="Stretching" />
             <option value="Strength Training" />
             <option value="Swimming" />
@@ -147,7 +147,8 @@ h2 {
   }
 
   #new-exercise {
-    width: auto;
+    min-width: 12vw;
+    width: 100%;
   }
 }
 </style>

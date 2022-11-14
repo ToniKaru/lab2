@@ -32,11 +32,12 @@ header {
 
 .logo {
   display: block;
-  margin: 0 auto -2rem;
+  margin: -2rem auto -2rem ;
 }
 
 @media (min-width: 580px) {
   header {
+    margin: -2rem auto -2rem ;
     display: flex;
     padding-right: 0;
     place-items: center;
