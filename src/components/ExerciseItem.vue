@@ -147,7 +147,7 @@ h2 {
   }
 
   #new-exercise {
-    min-width: 12vw;
+    min-width: 6vw;
     width: 100%;
   }
 }
